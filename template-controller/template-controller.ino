@@ -2,9 +2,9 @@
 
 Servo weaponServo;
 
-const byte inputPins[] = {51, 52, 53};
-const int mins[] =  {1024, 0, 0};
-const int maxes[] = {1960, 1, 1};
+const byte inputPins[] = {8, 9, 10};
+const int mins[] =  {1024, 1024, 1024};
+const int maxes[] = {1960, 1960, 1960};
 
 volatile float input1 = 0;
 volatile float input2 = 0;
