@@ -30,7 +30,7 @@ void setup() {
   pinMode(3, OUTPUT);
   pinMode(11, OUTPUT);
   
-  weaponServo.attach(14);
+  weaponServo.attach(13);
   
   Serial.begin(9600);
 }
