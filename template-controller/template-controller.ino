@@ -3,8 +3,8 @@
 Servo weaponServo;
 
 const byte inputPins[] = {A0, A1, A5};
-const int mins[] =  {1524, 1024, 1024};
-const int maxes[] = {1960, 1960, 1960};
+const int mins[] =  {1504, 1508, 1052};
+const int maxes[] = {1712, 1712, 1700};
 
 volatile float input1 = 0;
 volatile float input2 = 0;
@@ -47,8 +47,9 @@ void loop() {
   float turn = input2;
   float weapon = input3;
 
-  float left = forward + turn;
-  float right = forward - turn;
+  float left = -forward + turn;
+  float right = -forward - turn;
+  left *= -1;
 
   driveMotors(left, right);
 
