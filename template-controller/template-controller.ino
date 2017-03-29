@@ -2,8 +2,8 @@
 
 Servo weaponServo;
 
-const byte inputPins[] = {A5, A6, A7};
-const int mins[] =  {1024, 1024, 1024};
+const byte inputPins[] = {A0, A1, A5};
+const int mins[] =  {1524, 1024, 1024};
 const int maxes[] = {1960, 1960, 1960};
 
 volatile float input1 = 0;
@@ -25,11 +25,11 @@ void setup() {
   pinMode(inputPins[2], INPUT_PULLUP);
   attachPinChangeInterrupt(inputPins[2], input3Interrupt, CHANGE);
 
-  pinMoode(2, OUTPUT);
-  pinMoode(4, OUTPUT);
-  pinMoode(3, OUTPUT);
-  pinMoode(12, OUTPUT);
-  pinMoode(13, OUTPUT);
+  pinMode(2, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(3, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(13, OUTPUT);
   
   weaponServo.attach(9);
   
