@@ -59,9 +59,9 @@ void loop() {
 }
 
 void driveMotors(float leftPow, float rightPow){
-  // Inputs constrained to be in range 0...1
-  leftPow = constrain(leftPow, 0.0, 1.0);
-  rightPow = constrain(rightPow, 0.0, 1.0);
+  // Inputs constrained to be in range -1...1
+  leftPow = constrain(leftPow, -1.0, 1.0);
+  rightPow = constrain(rightPow, -1.0, 1.0);
   bool leftDir = leftPow > 0;
   bool rightDir = rightPow > 0;
 
