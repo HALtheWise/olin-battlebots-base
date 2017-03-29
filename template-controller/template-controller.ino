@@ -2,7 +2,7 @@
 
 Servo weaponServo;
 
-const byte inputPins[] = {8, 9, 10};
+const byte inputPins[] = {A5, A6, A7};
 const int mins[] =  {1024, 1024, 1024};
 const int maxes[] = {1960, 1960, 1960};
 
@@ -25,13 +25,13 @@ void setup() {
   pinMode(inputPins[2], INPUT_PULLUP);
   attachPinChangeInterrupt(inputPins[2], input3Interrupt, CHANGE);
 
-  pinMoode(9, OUTPUT);
-  pinMoode(10, OUTPUT);
-  pinMoode(11, OUTPUT);
+  pinMoode(2, OUTPUT);
+  pinMoode(4, OUTPUT);
+  pinMoode(3, OUTPUT);
   pinMoode(12, OUTPUT);
   pinMoode(13, OUTPUT);
   
-  weaponServo.attach(14);
+  weaponServo.attach(9);
   
   Serial.begin(9600);
 }
@@ -65,14 +65,14 @@ void driveMotors(float leftPow, float rightPow){
   bool leftDir = leftPow > 0;
   bool rightDir = rightPow > 0;
 
-  digitalWrite(8, leftDir);
-  digitalWrite(9, !leftDir);
+  digitalWrite(2, leftDir);
+  digitalWrite(4, !leftDir);
   
-  digitalWrite(10, rightDir);
-  digitalWrite(11, !rightDir);
+  digitalWrite(5, rightDir);
+  digitalWrite(7, !rightDir);
 
-  analogWrite(12, abs(255 * leftPow));
-  analogWrite(13, abs(255 * rightPow));
+  analogWrite(3, abs(255 * leftPow));
+  analogWrite(6, abs(255 * rightPow));
 }
 
 void printRadioData() {
