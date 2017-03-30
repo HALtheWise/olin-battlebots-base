@@ -6,8 +6,8 @@ const byte inputPins[] = {A0, A1, A5};
 const int mins[] =  {1504, 1508, 1052};
 const int maxes[] = {1712, 1712, 1700};
 
-const byte motor1[] = {2,4,3}; // {A,B,PWM}
-const byte motor2[] = {2,4,3};
+const byte motor1[] = {2,4,3}; // {1,2,PWM}
+const byte motor2[] = {7,5,6};
 
 volatile float input1 = 0;
 volatile float input2 = 0;
