@@ -30,7 +30,7 @@ void setup() {
   pinMode(3, OUTPUT);
   pinMode(11, OUTPUT);
   
-  weaponServo.attach(13);
+//  weaponServo.attach(13);
   
   Serial.begin(9600);
 }
@@ -44,14 +44,14 @@ void loop() {
 
   float forward = input1;
   float turn = input2;
-  float weapon = input3;
+//  float weapon = input3;
 
   float left = forward + turn;
   float right = forward - turn;
 
   driveMotors(left, right);
 
-  weaponServo.write(180*weapon);
+//  weaponServo.write(180*weapon);
 
   if (i%20 == 0)
     printRadioData();

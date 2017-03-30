@@ -5,8 +5,8 @@
  */
 
 
-#define MIN_MICROS 800
-#define MAX_MICROS 2500
+#define MIN_MICROS 0
+#define MAX_MICROS 35000
 
 void input1Interrupt() {
   const byte id = 0;
