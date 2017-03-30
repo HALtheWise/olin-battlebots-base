@@ -1,10 +1,13 @@
-#include <Servo.h>
+// #include <Servo.h>
 
-Servo weaponServo;
+// Servo weaponServo;
 
 const byte inputPins[] = {A0, A1, A5};
 const int mins[] =  {1504, 1508, 1052};
 const int maxes[] = {1712, 1712, 1700};
+
+const byte motor1[] = {2,4,3}; // {A,B,PWM}
+const byte motor2[] = {2,4,3};
 
 volatile float input1 = 0;
 volatile float input2 = 0;
@@ -25,13 +28,12 @@ void setup() {
   pinMode(inputPins[2], INPUT_PULLUP);
   attachPinChangeInterrupt(inputPins[2], input3Interrupt, CHANGE);
 
-  pinMode(2, OUTPUT);
-  pinMode(4, OUTPUT);
-  pinMode(3, OUTPUT);
-  pinMode(12, OUTPUT);
-  pinMode(13, OUTPUT);
+  for (byte i = 0; i < 3; i++){
+    pinMode(motor1[i], OUTPUT);
+    pinMode(motor2[i], OUTPUT);
+  }
   
-  weaponServo.attach(9);
+  // weaponServo.attach(9);
   
   Serial.begin(9600);
 }
@@ -53,7 +55,7 @@ void loop() {
 
   driveMotors(left, right);
 
-  weaponServo.write(180*weapon);
+  // weaponServo.write(180*weapon);
 
   if (i%20 == 0)
     printRadioData();
@@ -66,14 +68,14 @@ void driveMotors(float leftPow, float rightPow){
   bool leftDir = leftPow > 0;
   bool rightDir = rightPow > 0;
 
-  digitalWrite(2, leftDir);
-  digitalWrite(4, !leftDir);
+  digitalWrite(motor1[0], leftDir);
+  digitalWrite(motor1[1], !leftDir);
   
-  digitalWrite(5, rightDir);
-  digitalWrite(7, !rightDir);
+  digitalWrite(motor2[0], rightDir);
+  digitalWrite(motor2[1], !rightDir);
 
-  analogWrite(3, abs(255 * leftPow));
-  analogWrite(6, abs(255 * rightPow));
+  analogWrite(motor1[2], abs(255 * leftPow));
+  analogWrite(motor2[2], abs(255 * rightPow));
 }
 
 void printRadioData() {
