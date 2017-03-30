@@ -6,7 +6,7 @@ const byte inputPins[] = {A6, A7, A1};
 const int mins[] =  {1504, 1508, 1052};
 const int maxes[] = {1712, 1712, 1700};
 
-const byte motor1[] = {9,10,11}; // {A,B,PWM}
+const byte motor1[] = {7,6,5}; // {A,B,PWM}
 const byte motor2[] = {9,10,11};
 
 volatile float input1 = 0;
