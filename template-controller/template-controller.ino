@@ -2,12 +2,12 @@
 
 // Servo weaponServo;
 
-const byte inputPins[] = {A6, A7, A1};
+const byte inputPins[] = {2, 3, A6};
 const int mins[] =  {1504, 1508, 1052};
 const int maxes[] = {1712, 1712, 1700};
 
-const byte motor1[] = {7,6,5}; // {A,B,PWM}
-const byte motor2[] = {9,10,11};
+const byte motor1[] = {A0,A1,5}; // {A,B,PWM}
+const byte motor2[] = {A3,A4,6};
 
 volatile float input1 = 0;
 volatile float input2 = 0;
